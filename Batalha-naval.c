@@ -49,7 +49,36 @@ int main() {
         // tabuleiro[Linha Inicial + i][Coluna Fixa] = valor do vetor navio_vertical[i]
         tabuleiro[linha_v + i][coluna_v] = navio_vertical[i];
     }
+
+  // --- Posicionamento do Navio diagonal 1 (Início: linha 5, coluna 1)
+     int linha_inicial_p = 5;
+     int coluna_inicial_p = 1;
+ // k representa o (deslocamento)
+for (int k = 0; k < TAMANHO_NAVIO; k++) {
+        int i = linha_inicial_p + k;
+        int j = coluna_inicial_p + k;
+        
+        // Colocamos uma checagem simples de limite para garantir que funcione
+        if (i < TAMANHO_TABULEIRO && j < TAMANHO_TABULEIRO) {
+            tabuleiro[i][j] = NAVIO; 
+        }
+    }
+
+      // --- Posicionamento do Navio diagonal 2 (Início: linha 0, coluna 7)
+
+    int linha_inicial_s = 0;
+    int coluna_inicial_s = 7; 
     
+    // k representa o (deslocamento)
+    for (int k = 0; k < TAMANHO_NAVIO; k++) {
+        int i = linha_inicial_s + k; // A linha aumenta
+        int j = coluna_inicial_s - k; // A coluna diminui
+        
+        // Colocamos uma checagem simples de limite para garantir que funcione
+        if (i < TAMANHO_TABULEIRO && j >= 0) {
+            tabuleiro[i][j] = NAVIO; 
+        }
+     } 
     // 3. Exiba o Tabuleiro
     exibirTabuleiro(tabuleiro);
     
